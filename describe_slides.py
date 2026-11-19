@@ -108,15 +108,25 @@ Allgemein:
 
 DIAGRAM_RULES = {
     "klasse": """- UML-Klassen-, Objekt- und Domänenmodell-Diagramme: jede Klasse bzw. jedes Objekt
-  mit Attributen (inkl. Typ und Sichtbarkeit) und Methoden; jede Beziehung mit Art
-  (Assoziation, Aggregation, Komposition, Vererbung, Realisierung, Abhängigkeit),
-  Richtung, Rollennamen und Multiplizitäten an beiden Enden.
+  mit den Attributen, Typen, Sichtbarkeiten und Methoden, die im Bild stehen. Was nicht
+  im Bild steht (z. B. Methoden im Domänenmodell), nicht ergänzen. Jede Beziehung mit
+  Art, Name, Rollennamen und Multiplizitäten an beiden Enden.
   Notation genau unterscheiden: Assoziation = durchgezogene Linie (ggf. mit offenem
   Pfeil für die Navigierbarkeit). Abhängigkeit = gestrichelter Pfeil. Vererbung =
   durchgezogene Linie mit hohlem Dreieck an der Oberklasse. Realisierung = gestrichelte
   Linie mit hohlem Dreieck. Aggregation = hohle Raute, Komposition = gefüllte Raute am
-  Ganzen. Ein kleines gefülltes Dreieck neben einem Beziehungsnamen zeigt nur die
-  Leserichtung des Namens und ist keine Beziehungsart.""",
+  Ganzen.
+  Die Art einer Beziehung ergibt sich nur aus dem Symbol an der Linie, nie aus ihrem
+  Namen: "enthält" oder "besteht aus" ist keine Aggregation, wenn keine Raute
+  eingezeichnet ist. Eine Linie ohne Raute, ohne hohles Dreieck und ohne Pfeilspitze
+  ist eine einfache Assoziation.
+  Ein kleines gefülltes Dreieck neben einem Beziehungsnamen zeigt nur die Leserichtung
+  des Namens: Nenne es "Leserichtung", nie "Navigationsrichtung", und beschreibe es
+  nicht als Pfeil der Linie. Gib an, wie der Name zu lesen ist (z. B. "Benutzer macht
+  Buchungswunsch"). Namen neben der Linie sind Assoziationsnamen; Rollennamen nur, wenn
+  sie direkt am Linienende stehen.
+  Multiplizitäten nur angeben, wenn sie im Bild stehen. Fehlt eine, schreib "keine
+  Angabe".""",
 
     "sequenz": """- Sequenzdiagramme: alle Lebenslinien, dann die Nachrichten in zeitlicher Reihenfolge
   (Sender -> Empfänger: Nachricht, synchron/asynchron/Antwort) sowie Fragmente
@@ -268,7 +278,8 @@ CONTEXT_OTHER = """
 Worum es auf der vorherigen Folie ging (nur als Hintergrund, falls diese Folie
 sich darauf bezieht): {prev_topic}
 Beschreibe trotzdem ausschließlich, was auf DIESER Folie steht oder zu sehen ist.
-Übernimm keine Inhalte von der vorherigen Folie.
+Übernimm keine Inhalte von der vorherigen Folie, vergleiche diese Folie nicht mit
+ihr und schreib nicht "im Gegensatz zur vorherigen Folie" oder Ähnliches.
 """
 
 SIMILARITY_THRESHOLD = 0.6  # ab hier gilt der Folientext als "fast gleich"
