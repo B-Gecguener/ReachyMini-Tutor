@@ -1,0 +1,79 @@
+[
+  {
+    "lecture": "VT-Kapitel 0 - Organisatorisches und Motivation",
+    "file": "kapitel/VT-Kapitel 0 - Organisatorisches und Motivation.md",
+    "slides": 31,
+    "chars": 25238,
+    "tokens_est": 8413
+  },
+  {
+    "lecture": "VT-Kapitel 1 - Softwareentwicklungsprozess",
+    "file": "kapitel/VT-Kapitel 1 - Softwareentwicklungsprozess.md",
+    "slides": 50,
+    "chars": 41409,
+    "tokens_est": 13803
+  },
+  {
+    "lecture": "VT-Kapitel 2 - Anforderungsanalyse",
+    "file": "kapitel/VT-Kapitel 2 - Anforderungsanalyse.md",
+    "slides": 80,
+    "chars": 84908,
+    "tokens_est": 28303
+  },
+  {
+    "lecture": "VT-Kapitel 3 - UML Klassen- und Objektdiagramme",
+    "file": "kapitel/VT-Kapitel 3 - UML Klassen- und Objektdiagramme.md",
+    "slides": 53,
+    "chars": 47590,
+    "tokens_est": 15863
+  },
+  {
+    "lecture": "VT-Kapitel 4 - Domänenmodell",
+    "file": "kapitel/VT-Kapitel 4 - Domänenmodell.md",
+    "slides": 36,
+    "chars": 29849,
+    "tokens_est": 9950
+  },
+  {
+    "lecture": "VT-Kapitel 5 - Sequenzdiagramme",
+    "file": "kapitel/VT-Kapitel 5 - Sequenzdiagramme.md",
+    "slides": 33,
+    "chars": 33598,
+    "tokens_est": 11199
+  },
+  {
+    "lecture": "VT-Kapitel 6 - Aktivitätsdiagramme",
+    "file": "kapitel/VT-Kapitel 6 - Aktivitätsdiagramme.md",
+    "slides": 52,
+    "chars": 49204,
+    "tokens_est": 16401
+  },
+  {
+    "lecture": "VT-Kapitel 7 - Zustandsdiagramme",
+    "file": "kapitel/VT-Kapitel 7 - Zustandsdiagramme.md",
+    "slides": 62,
+    "chars": 56751,
+    "tokens_est": 18917
+  },
+  {
+    "lecture": "VT-Kapitel 8 - GRASP und SOLID",
+    "file": "kapitel/VT-Kapitel 8 - GRASP und SOLID.md",
+    "slides": 58,
+    "chars": 59975,
+    "tokens_est": 19992
+  },
+  {
+    "lecture": "VT-Kapitel 9 - GoF Pattern",
+    "file": "kapitel/VT-Kapitel 9 - GoF Pattern.md",
+    "slides": 44,
+    "chars": 43951,
+    "tokens_est": 14650
+  },
+  {
+    "lecture": "VT-Kapitel 10 - Qualität",
+    "file": "kapitel/VT-Kapitel 10 - Qualität.md",
+    "slides": 49,
+    "chars": 44631,
+    "tokens_est": 14877
+  }
+]
