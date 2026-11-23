@@ -109,24 +109,34 @@ Allgemein:
 DIAGRAM_RULES = {
     "klasse": """- UML-Klassen-, Objekt- und Domänenmodell-Diagramme: jede Klasse bzw. jedes Objekt
   mit den Attributen, Typen, Sichtbarkeiten und Methoden, die im Bild stehen. Was nicht
-  im Bild steht (z. B. Methoden im Domänenmodell), nicht ergänzen. Jede Beziehung mit
-  Art, Name, Rollennamen und Multiplizitäten an beiden Enden.
+  im Bild steht (z. B. Methoden im Domänenmodell), nicht ergänzen.
   Notation genau unterscheiden: Assoziation = durchgezogene Linie (ggf. mit offenem
   Pfeil für die Navigierbarkeit). Abhängigkeit = gestrichelter Pfeil. Vererbung =
   durchgezogene Linie mit hohlem Dreieck an der Oberklasse. Realisierung = gestrichelte
-  Linie mit hohlem Dreieck. Aggregation = hohle Raute, Komposition = gefüllte Raute am
-  Ganzen.
+  Linie mit hohlem Dreieck.
+  Prüfe an jedem Linienende einzeln, ob dort ein Symbol sitzt, und nenne es. Eine Raute
+  (vier Ecken, sitzt direkt am Rand der Klasse) steht immer beim Ganzen: hohl =
+  Aggregation, gefüllt = Komposition. Eine Raute ist nie eine Leserichtung.
   Die Art einer Beziehung ergibt sich nur aus dem Symbol an der Linie, nie aus ihrem
   Namen: "enthält" oder "besteht aus" ist keine Aggregation, wenn keine Raute
   eingezeichnet ist. Eine Linie ohne Raute, ohne hohles Dreieck und ohne Pfeilspitze
-  ist eine einfache Assoziation.
-  Ein kleines gefülltes Dreieck neben einem Beziehungsnamen zeigt nur die Leserichtung
-  des Namens: Nenne es "Leserichtung", nie "Navigationsrichtung", und beschreibe es
-  nicht als Pfeil der Linie. Gib an, wie der Name zu lesen ist (z. B. "Benutzer macht
-  Buchungswunsch"). Namen neben der Linie sind Assoziationsnamen; Rollennamen nur, wenn
-  sie direkt am Linienende stehen.
+  ist eine einfache Assoziation. Fasse die Beziehungsarten nicht vorab zusammen
+  ("alle Assoziationen"), sondern lies jede Beziehung einzeln.
+  Ein kleines gefülltes Dreieck zeigt nur die Leserichtung des Beziehungsnamens. Es steht
+  frei neben dem Namen oder auf der Linie und berührt keine Klasse. Seine Spitze zeigt
+  auf die Klasse, die im gelesenen Satz hinten steht: Zeigt die Spitze bei "macht" auf
+  Buchungswunsch, lautet der Satz "Benutzer macht Buchungswunsch". Die Reihenfolge, in
+  der du die Klassen in der Zeile nennst, ist davon unabhängig: Lies die Richtung immer
+  am Dreieck ab. Nenne es "Leserichtung", nie "Navigationsrichtung", und beschreibe es
+  nicht als Pfeil der Linie.
+  Namen neben der Linie sind Assoziationsnamen; Rollennamen nur, wenn sie direkt am
+  Linienende stehen.
   Multiplizitäten nur angeben, wenn sie im Bild stehen. Fehlt eine, schreib "keine
-  Angabe".""",
+  Angabe".
+  Jede Beziehung als eine Zeile: Klasse A – Klasse B: Art; Name (bei fehlendem Namen
+  "ohne Namen"); Dreieck zeigt auf [Klasse] (gelesen: "[andere Klasse] Name [Klasse an
+  der Spitze]", nur wenn ein Dreieck da ist); Multiplizität A / B; Symbol an den Enden
+  (keins / Raute gefüllt / Raute hohl / hohles Dreieck / offene Pfeilspitze).""",
 
     "sequenz": """- Sequenzdiagramme: alle Lebenslinien, dann die Nachrichten in zeitlicher Reihenfolge
   (Sender -> Empfänger: Nachricht, synchron/asynchron/Antwort) sowie Fragmente
@@ -326,12 +336,12 @@ def topic_of(description: str) -> str:
 
 
 def build_context(slide: dict, prev: dict | None) -> str:
-    """Kontext der Vorgängerfolie: voll bei gleichem Stoff, sonst nur ihr Thema."""
+    """Kontext der Vorgängerfolie: nur bei gleichem Stoff (Animationsschritte)."""
     if not prev or not prev.get("description"):
         return ""
     if same_material(slide, prev):
         return CONTEXT_SAME.format(prev_description=prev["description"])
-    return CONTEXT_OTHER.format(prev_topic=topic_of(prev["description"]))
+    return ""  # sonst kein Kontext: verhindert Durchsickern in die Beschreibung
 
 
 # ---------------------------------------------------------------------------
